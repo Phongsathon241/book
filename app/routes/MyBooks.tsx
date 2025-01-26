@@ -13,8 +13,8 @@ const books = [
         Category: 1,
         Author: "Hajime Isayama",
         Publishing: "JJPong",
-        Price: "200 THB",
-        Bestsellers: true,
+        Price: "300 THB",
+        Bestsellers: false,
         Suggestions: true,
     },
    
@@ -29,7 +29,7 @@ const books = [
         Publishing: "Pong JJ",
         Price: "650 THB",
         Bestsellers: false,
-        Suggestions: false,
+        Suggestions: true,
     },
     {
         href : "https://www.elizabethgilbert.com/books/eat-pray-love/",
@@ -42,7 +42,7 @@ const books = [
         Publishing: "Godzilla",
         Price: "390 THB",
         Bestsellers: true,
-        Suggestions: false,
+        Suggestions: true,
     },
     {
         href : "https://www.asiabooks.com/th/walk-in-the-woods-a-309741.html",
@@ -54,7 +54,7 @@ const books = [
         Author: "Bill Bryson",
         Publishing: "Bert wan wang wang",
         Price: "478 THB",
-        Bestsellers: true,
+        Bestsellers: false,
         Suggestions: true,
     },
     {
@@ -77,10 +77,11 @@ const StatusCheck = ({ isBestseller, isSuggestion }: { isBestseller: boolean; is
     return (
         <div>
             {isBestseller && <span>{'Best Selling!'}</span>}
-            {isSuggestion && <span>{'Recommended'}</span>}
+            {isSuggestion && <span>{'recommend'}</span>}
         </div>
     );
 };
+
 
 const BookList = () => {
     const [filter, setFilter] = useState<'all' | 'bestseller' | 'suggestion'>('all'); // สถานะการกรอง
@@ -129,10 +130,10 @@ const BookList = () => {
             <div className="mb-4">
                 {/* ปุ่มกรองข้อมูล */}
                 <button onClick={() => setFilter('all')} className="mr-2 px-4 py-2 bg-blue-500 text-white rounded">All</button>
-                <button onClick={() => setFilter('bestseller')} className="mr-2 px-4 py-2 bg-green-500 text-white rounded">Best Selling</button>
-                <button onClick={() => setFilter('suggestion')} className="mr-2 px-4 py-2 bg-yellow-500 text-white rounded">Recommended</button>
+                <button onClick={() => setFilter('bestseller')} className="mr-2 px-4 py-2 bg-red-500 text-white rounded">Best Selling</button>
+                <button onClick={() => setFilter('suggestion')} className="mr-2 px-4 py-2 bg-green-500 text-white rounded">recommend</button>
             </div>
-            <strong className="text-xl">แนะนำหนังสือ</strong>
+            <strong className="text-xl">หนังสือแนะนำ</strong>
             <br />
             <strong className="text-xl">ข้อมูลอ้างอิงมาจาก https://www.amazon.com/100-Wonders-World-Michael-Hoffman/dp/1405494778 
             <br/>
